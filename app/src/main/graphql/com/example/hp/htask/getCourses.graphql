@@ -1,0 +1,8 @@
+query getCources{
+  course {
+    name
+    image
+    description
+    package
+  }
+}
