@@ -10,50 +10,54 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.annotation.GlideModule;
 
+import java.util.ArrayList;
 import java.util.List;
 
-class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-    private Context context ;
-    private List<CourceInfo> courceInfoList ;
+    private Context context;
+    private ArrayList<CourceInfo> courseList;
 
-    public CustomAdapter(Context context, List<CourceInfo> courceInfoList) {
+    public CustomAdapter(Context context, ArrayList<CourceInfo> courceInfoList) {
         this.context = context;
-        this.courceInfoList = courceInfoList;
+        this.courseList = courceInfoList;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.course_item,parent,false);
-        return new ViewHolder(itemView) ;
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_citem, parent, false);
+        return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        holder.name.setText(courceInfoList.get(position).getName());
-        holder.des.setText(courceInfoList.get(position).getDesc());
-        holder.pack.setText(courceInfoList.get(position).getPack());
-        Glide.with(context).load(courceInfoList.get(position).getImagelink()).into(holder.image);
+        holder.name.setText(courseList.get(position).getName());
+        holder.des.setText(courseList.get(position).getDesc());
+        holder.pack.setText(courseList.get(position).getPack());
+
+        Glide.with(context).load(courseList.get(position).getImagelink()).into(holder.image);
 
     }
 
     @Override
     public int getItemCount() {
-        return courceInfoList.size();
+        return courseList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView image ;
-        TextView name , des , pack ;
+        ImageView image;
+        TextView name, des, pack;
+
         public ViewHolder(View itemView) {
             super(itemView);
-            image =(ImageView)itemView.findViewById(R.id.cource_image);
-            name = (TextView)itemView.findViewById(R.id.cource_name);
-            des = (TextView)itemView.findViewById(R.id.cource_des);
-            pack = (TextView)itemView.findViewById(R.id.cource_pack);
+            image = itemView.findViewById(R.id.course_image);
+            name = itemView.findViewById(R.id.course_name);
+            des = itemView.findViewById(R.id.course_des);
+            pack = itemView.findViewById(R.id.course_pack);
         }
     }
 }

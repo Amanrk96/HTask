@@ -2,7 +2,7 @@ package com.example.hp.htask;
 
 class CourceInfo {
 
-    String imagelink , name , desc , pack ;
+    String imagelink, name, desc, pack;
 
     public CourceInfo(String imagelink, String name, String desc, String pack) {
         this.imagelink = imagelink;

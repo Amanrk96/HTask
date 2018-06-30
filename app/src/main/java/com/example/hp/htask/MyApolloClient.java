@@ -7,9 +7,9 @@ import okhttp3.logging.HttpLoggingInterceptor;
 
 public class MyApolloClient {
 
-    private static  final  String Base_url ="https://www.neetprep.com/graphql";
+    private static final String Base_url = "https://www.neetprep.com/graphql";
 
-    private static ApolloClient myApolloClient ;
+    private static ApolloClient myApolloClient;
 
     public static ApolloClient getMyApolloClient() {
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
@@ -20,6 +20,6 @@ public class MyApolloClient {
 
         myApolloClient = ApolloClient.builder().serverUrl(Base_url).okHttpClient(okHttpClient).build();
 
-        return myApolloClient ;
+        return myApolloClient;
     }
 }

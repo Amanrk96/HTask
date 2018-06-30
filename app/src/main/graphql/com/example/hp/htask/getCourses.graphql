@@ -1,7 +1,7 @@
-query getCources{
+query getCourses{
   course {
-    name
     image
+    name
     description
     package
   }
